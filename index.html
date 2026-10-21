@@ -1488,6 +1488,29 @@
       }
     ];
 
+    // Distribute correct answers across all four positions while keeping scoring accurate.
+    (function randomizeCorrectAnswerPositions() {
+      const targetPositions = QUESTIONS_BANK.map((_, index) => index % 4);
+      for (let i = targetPositions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [targetPositions[i], targetPositions[j]] = [targetPositions[j], targetPositions[i]];
+      }
+
+      QUESTIONS_BANK.forEach((question, questionIndex) => {
+        const correctAnswer = question.options[question.ans];
+        const otherOptions = question.options.filter((_, optionIndex) => optionIndex !== question.ans);
+        for (let i = otherOptions.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [otherOptions[i], otherOptions[j]] = [otherOptions[j], otherOptions[i]];
+        }
+
+        const correctPosition = targetPositions[questionIndex];
+        otherOptions.splice(correctPosition, 0, correctAnswer);
+        question.options = otherOptions;
+        question.ans = correctPosition;
+      });
+    })();
+
     // --- 8 PRESET EXAMS CONFIGURATION ---
     const PRESET_EXAMS = [
       {
