@@ -20,7 +20,7 @@ else
   git remote add origin "$REPO_URL"
 fi
 
-git add index.html README.md .nojekyll .github/workflows/deploy.yml deploy.sh
+git add -A
 git diff --cached --quiet || git commit -m "Deploy Jordan driving academy website"
 git push -u origin main
 

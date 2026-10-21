@@ -8,6 +8,4 @@ https://yaseenyaseen123.github.io/swq/
 
 ## النشر
 
-يُنشر الموقع تلقائيًا إلى GitHub Pages بواسطة GitHub Actions عند دفع تغييرات إلى الفرع `main`، ويمكن تشغيل سير العمل يدويًا من تبويب **Actions**.
-
-ملف سير العمل: `.github/workflows/deploy.yml`.
+يُنشر الموقع تلقائيًا إلى GitHub Pages من الفرع `main` والمجلد الجذري `/` عند دفع أي تحديث. لا يلزم تشغيل سير عمل يدوي.

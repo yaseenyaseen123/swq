@@ -22,7 +22,7 @@ if %errorlevel% neq 0 (
 )
 
 git init
-git add index.html README.md .nojekyll .github/workflows/deploy.yml
+git add -A
 git commit -m "Deploy Jordan Driving Academy 2026"
 git branch -M main
 git remote get-url origin >nul 2>nul
